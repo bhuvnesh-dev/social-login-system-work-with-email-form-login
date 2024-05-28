@@ -1,0 +1,114 @@
+<ion-toast
+  [isOpen]="openToast"
+  position="top"
+  duration="infinite"
+  [message]="toastMessage"
+  color="danger"
+  class="custom-toast"
+  [buttons]="toastButtons"
+></ion-toast>
+<ion-content class="page">
+  <ion-buttons
+    (click)="onBack()"
+    style="position: absolute; top: 24px; left: 16px"
+  >
+    <img src="../../assets/back-button.svg" />
+  </ion-buttons>
+  <ion-col class="logo">
+    <ion-row>
+      <img src="../../assets/auth.svg" />
+    </ion-row>
+  </ion-col>
+  <ion-row class="title"> Register </ion-row>
+  <ion-grid class="form">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <ion-item fill="none" lines="none" class="inputs">
+        <img src="../../assets/user.svg" class="icons" />
+        <ion-input
+          placeholder="Enter First Name..."
+          type="text"
+          required
+          name="first_name"
+          formControlName="first_name"
+        ></ion-input>
+      </ion-item>
+      <span
+        class="error"
+        *ngIf="isSubmitted && registerForm?.controls?.first_name?.errors?.['required']"
+      >
+        First Name is required.
+      </span>
+      <ion-item fill="none" lines="none" class="inputs">
+        <img src="../../assets/user.svg" class="icons" />
+        <ion-input
+          placeholder="Enter Last Name..."
+          type="text"
+          required
+          name="last_name"
+          formControlName="last_name"
+        ></ion-input>
+      </ion-item>
+      <span
+        class="error"
+        *ngIf="isSubmitted && registerForm?.controls?.last_name?.errors?.['required']"
+      >
+        Last Name is required.
+      </span>
+      <ion-item fill="none" lines="none" class="inputs">
+        <img src="../../assets/mail.svg" class="icons" />
+        <ion-input
+          placeholder="Enter E-mail..."
+          type="text"
+          required
+          name="email"
+          formControlName="email"
+        ></ion-input>
+      </ion-item>
+      <span
+        class="error"
+        *ngIf="isSubmitted && registerForm?.controls?.email?.errors?.['required']"
+      >
+        Email is required.
+      </span>
+      <ion-item fill="none" lines="none" class="inputs">
+        <img src="../../assets/lock.svg" class="icons" />
+        <ion-input
+          placeholder="Password"
+          name="password"
+          #input
+          id="password"
+          type="password"
+          formControlName="password"
+        ></ion-input>
+        <a class="type-toggle" (click)="toggleShow()">
+          <img
+            src="../../assets/eye-off.svg"
+            [hidden]="showPassword"
+            class="eye-close"
+          />
+          <img
+            src="../../assets/eye-open.svg"
+            [hidden]="!showPassword"
+            class="eye-open"
+          />
+        </a>
+      </ion-item>
+      <span
+        class="error"
+        *ngIf="isSubmitted && registerForm?.controls?.password?.errors?.['required']"
+      >
+        Password is required.
+      </span>
+      <ion-button class="red-btn" full type="submit" fill="none">
+        <ion-label class="button-text"> Sign Up </ion-label>
+      </ion-button>
+    </form>
+    <div class="register-link">
+      Already have an account
+      <a (click)="onBack()"><b style="text-decoration: underline">Log In</b></a>
+    </div>
+    <div *ngIf="spinner" class="spinner">
+      <ion-spinner name="lines-sharp"></ion-spinner>
+    </div>
+  </ion-grid>
+</ion-content>

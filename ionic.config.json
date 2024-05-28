@@ -1,0 +1,7 @@
+{
+  "name": "Social login system work with Email form login",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,190 @@
+ion-content {
+    --background: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    .logo {
+      padding-top: 120px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+    }
+    .title {
+      font-size: 28px;
+      color: var(--ion-color-dark);
+      font-family: DmSans-Bold;
+      line-height: 20px;
+      margin-left: 25px;
+      margin-right: 25px;
+      margin-top: 42px;
+    }
+    .form {
+      padding: 25px;
+      text-align: left;
+      width: 100%;
+      text-align: center;
+      padding-top: 15px;
+      .inputs {
+        font-family: DmSans-Regular;
+        margin-top: 20px;
+        border-radius: 65px;
+        border: 1px solid #969696;
+        font-size: 16px;
+        text-align: left;
+        color: black;
+        --placeholder-color: black;
+  
+        overflow: auto;
+        margin-bottom: 3px;
+        align-items: center;
+        .icons {
+          margin-right: 10px;
+        }
+        .eye-close {
+          color: #555555;
+        }
+        .eye-open {
+          color: var(--ion-color-light-shade);
+        }
+        label {
+          color: var(--ion-color-light-shade);
+        }
+      }
+      .inputs:hover {
+        border: 1px solid var(--dark);
+        border-radius: 65px;
+        overflow: auto;
+        ion-input {
+          color: var(--dark);
+          font-family: DmSans-Medium;
+          --placeholder-color: var(--dark);
+        }
+      }
+      .error {
+        color: var(--auth-button);
+        font-size: 12px;
+        margin-left: 10px;
+        display: flex;
+        text-align: left;
+      }
+      .extra-events {
+        margin-top: 10px;
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px;
+        font-size: 13px;
+        color: #8f8f8f;
+        font-family: DmSans-Regular;
+        .checkbox {
+          margin-right: 5px;
+        }
+      }
+      .red-btn {
+        // display: flex;
+        align-self: center;
+        --background: var(--auth-button);
+        font-weight: 500;
+        border-radius: 5px;
+        margin-top: 30px;
+        --border-radius: 65px;
+        .button-text {
+          font-family: DmSans-Regular;
+          font-size: 18px;
+          color: var(--ion-color-white);
+          padding-left: 30px;
+          padding-right: 30px;
+          color: white;
+        }
+      }
+      .red-btn:hover {
+        --background: var(--auth-button);
+        color: white;
+      }
+      .register-link {
+        font-family: DmSans-Regular;
+        margin-top: 15px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        width: 100%;
+        color: #454545;
+      }
+    }
+    .divider {
+      display: flex;
+      align-self: center;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5px;
+      margin-right: 5px;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: grey;
+      font-family: DmSans-Regular;
+      .lines {
+        height: 1px;
+        width: 20%;
+        margin: 10px;
+        background-color: var(--divider);
+      }
+    }
+    .social-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      .social-button {
+        background-color: var(--ion-color-white);
+        border-radius: 50px;
+        padding: 10px;
+        height: 50px;
+        width: 50px;
+        color: black;
+        font-size: 30px;
+        box-shadow: 0px 0px 16px 0px rgba(0, 166, 231, 0.16);
+        margin: 5px;
+        .social-icons {
+          height: 24px;
+          width: 24px;
+        }
+      }
+    }
+    .spinner {
+      position: absolute;
+      backdrop-filter: blur(5px);
+      z-index: 9999999999;
+      display: flex;
+      height: 100%;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      justify-content: center;
+      align-items: center;
+      ion-spinner {
+        --color: var(--auth-button);
+      }
+    }
+  }
+  ion-toast.custom-toast {
+    --background: #f4f4fa;
+    --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    --color: #4b4a50;
+  }
+  
+  ion-toast.custom-toast::part(message) {
+    font-family: DmSans-Medium;
+  }
+  
+  ion-toast.custom-toast::part(button) {
+    border-left: 1px solid #d2d2d2;
+    color: #ffff;
+    font-size: 15px;
+    font-family: DmSans-Medium;
+  }
+  

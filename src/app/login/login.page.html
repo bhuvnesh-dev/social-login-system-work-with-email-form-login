@@ -1,0 +1,97 @@
+<ion-toast
+  [isOpen]="openToast"
+  position="top"
+  duration="infinite"
+  [message]="toastMessage"
+  color="danger"
+  class="custom-toast"
+  [buttons]="toastButtons"
+></ion-toast>
+<ion-buttons
+  style="position: absolute; top: 24px; left: 16px"
+  (click)="onBack()"
+>
+  <img src="../../assets/back-button.svg" />
+</ion-buttons>
+<ion-content class="page">
+  <ion-col class="logo">
+    <ion-row>
+      <img src="../../assets/auth.svg" />
+    </ion-row>
+  </ion-col>
+  <ion-row class="title"> Log-In </ion-row>
+  <ion-grid class="form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <ion-item fill="none" lines="none" class="inputs">
+        <img src="../../assets/mail.svg" class="icons" />
+        <ion-input
+          placeholder="Enter your email here"
+          type="text"
+          required
+          name="email"
+          formControlName="email"
+        ></ion-input>
+      </ion-item>
+      <ion-item fill="none" lines="none" class="inputs">
+        <img src="../../assets/lock.svg" class="icons" />
+        <ion-input
+          placeholder="Password"
+          name="password"
+          #input
+          id="password"
+          type="password"
+          formControlName="password"
+        ></ion-input>
+        <a class="type-toggle" (click)="toggleShow()">
+          <img
+            src="../../assets/eye-off.svg"
+            [hidden]="showPassword"
+            class="eye-close"
+          />
+          <img
+            src="../../assets/eye-open.svg"
+            [hidden]="!showPassword"
+            class="eye-open"
+          />
+        </a>
+      </ion-item>
+      <span
+        class="error"
+        *ngIf="isSubmitted && loginForm?.controls?.password?.errors?.['required']"
+      >
+        Password is required.
+      </span>
+      <div class="extra-events">
+        <ion-row> </ion-row>
+        <a style="text-decoration: underline" (click)="forgotPassword()"
+          >Forgot Password</a
+        >
+      </div>
+      <ion-button class="red-btn" full type="submit" fill="none">
+        <ion-label class="button-text"> Login </ion-label>
+      </ion-button>
+      <div class="register-link">
+        Don't have any account
+        <a (click)="openRegisterPage()"
+          ><b style="text-decoration: underline">Sign Up</b></a
+        >
+      </div>
+    </form>
+    <div class="divider">
+      <div class="lines"></div>
+      Sign Up With
+      <div class="lines"></div>
+    </div>
+    <ion-row class="social-section">
+      <div class="social-button" (click)="googleLogin()">
+        <img class="social-icons" src="../../assets/google.svg" />
+      </div>
+      <div class="social-button" *ngIf="isIOS" (click)="appleLogin()">
+        <img class="social-icons" src="../../assets/apple.svg" />
+      </div>
+    </ion-row>
+    <div *ngIf="spinner" class="spinner">
+      <ion-spinner name="lines-sharp"></ion-spinner>
+    </div>
+  </ion-grid>
+</ion-content>
